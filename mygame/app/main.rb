@@ -25,7 +25,7 @@ WINDOW_WIDTH = 1280
 @boxes = []
 @height = 0
 @footprint = 0
-@start = false
+@start = true
 @end = false
 
 def tick args
@@ -55,6 +55,8 @@ def tick args
 
   # end screen
   elsif @end
+    args.outputs.sprites << [0, 0, WINDOW_WIDTH, WINDOW_WIDTH, 'sprites/square/red.png']
+    args.outputs.labels << [640, 360, "YOU DIED HAHA", 10, 1, 255, 255, 255]
     # TODO: end screen
 
   # gameplay
@@ -95,5 +97,7 @@ def tick args
         @pair = rand(5)
       end
     end
+
+    @end = true if @footprint > 100
   end
 end
