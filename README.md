@@ -3,7 +3,7 @@
 
 _Created for Ellehacks 2021. [HYPE link](https://ellehacks.hypeinnovation.com/servlet/hype/IMT?documentTableId=9007205813284879242&userAction=Browse&templateName=&documentId=5250193d5b7cc07f148122880659323c)_
 
-![Banner](/images/banner.jpg)
+![Banner](/mygame/sprites/ellehacks/banner.jpg)
 
 🗼 The objective of this game is to build as tall a tower as you can! Easy, right?
 
