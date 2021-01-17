@@ -18,6 +18,19 @@ SCORES = {
   'tap water' => [0, 3]
 }.freeze
 
+SCORECOUNT = {
+  'cow' => 0,
+  'veggies' => 0,
+  'car' => 0,
+  'bus' => 0,
+  'plastic bag' => 0,
+  'tote' => 0,
+  'new shirt' => 0,
+  'thrifted' => 0,
+  'bottled water' => 0,
+  'tap water' => 0
+}
+
 WINDOW_HEIGHT = 720
 WINDOW_WIDTH = 1280
 
@@ -56,12 +69,12 @@ def tick args
   # end screen
   elsif @end
     
-    # calculating what's a good score: 15 and below bad, to 25 average, 25 above getting better
+    # calculating what's a good score: 15 and below bad, to 22 average, 22 above getting better
     if @height <= 15
       args.outputs.sprites << [0, 0, WINDOW_WIDTH, WINDOW_WIDTH, 'sprites/square/red.png']
       args.outputs.labels << [640, 400, 'Try to think of ways you can be sustainable in your life.', 10, 1, 255, 255, 255]
       # insert personalized message about the things they chose
-    elsif @height <= 25
+    elsif @height <= 22
       args.outputs.sprites << [0, 0, WINDOW_WIDTH, WINDOW_WIDTH, 'sprites/square/yellow.png']
       args.outputs.labels << [640, 400, 'You can be more sustainable and make a change!', 10, 1, 255, 255, 255]
       # insert personalized message about the things they chose
@@ -73,6 +86,24 @@ def tick args
     args.outputs.labels << [640, 550, 'GAME OVER!', 10, 1, 255, 255, 255]
     args.outputs.labels << [640, 500, 'You\'ve exceeded the maximum carbon footprint.', 10, 1, 255, 255, 255]
     args.outputs.labels << [640, 450, "Your score was: #{@height}", 10, 1, 255, 255, 255]
+
+    args.outputs.labels << [640, 350, "Cows: #{SCORECOUNT['cow']}", 10, 1, 255, 255, 255]
+    #TODO something with scorecount of each item
+               
+    # play again button
+    args.outputs.sprites << [WINDOW_WIDTH / 2 - 150, 75, 300, 100, 'sprites/square/black.png']
+    args.outputs.labels << [640, 150, "Play Again?", 10, 1, 255, 255, 255]
+
+    if args.inputs.mouse.click
+      if args.inputs.mouse.point.inside_rect? [WINDOW_WIDTH / 2 - 50, 75, WINDOW_WIDTH / 2 - 50 + 100, 75 + 100]
+        @start = true
+        @end = false
+        @height = 0
+        @footprint = 0
+        @boxes = []
+        SCORECOUNT.each { |k, v| SCORECOUNT[k] = 0 } 
+      end
+    end
 
   # gameplay
   else
@@ -110,10 +141,10 @@ def tick args
         @height += 1
         @footprint += SCORES[item][0] + rand(SCORES[item][1] - SCORES[item][0])
         @pair = rand(5)
+        SCORECOUNT[item] += 1
       end
     end
 
     @end = true if @footprint > 100
   end
 end
-
