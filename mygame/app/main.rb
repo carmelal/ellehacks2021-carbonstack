@@ -59,21 +59,20 @@ def tick args
     # calculating what's a good score: 15 and below bad, to 25 average, 25 above getting better
     if @height <= 15
       args.outputs.sprites << [0, 0, WINDOW_WIDTH, WINDOW_WIDTH, 'sprites/square/red.png']
-      args.outputs.labels << [640, 400, "Try to think of ways you can be sustainable in your life.", 10, 1, 255, 255, 255]
+      args.outputs.labels << [640, 400, 'Try to think of ways you can be sustainable in your life.', 10, 1, 255, 255, 255]
       # insert personalized message about the things they chose
     elsif @height <= 25
       args.outputs.sprites << [0, 0, WINDOW_WIDTH, WINDOW_WIDTH, 'sprites/square/yellow.png']
-      args.outputs.labels << [640, 400, "You can be more sustainable and make a change!", 10, 1, 255, 255, 255]
+      args.outputs.labels << [640, 400, 'You can be more sustainable and make a change!', 10, 1, 255, 255, 255]
       # insert personalized message about the things they chose
     else
       args.outputs.sprites << [0, 0, WINDOW_WIDTH, WINDOW_WIDTH, 'sprites/square/green.png']
-      args.outputs.labels << [640, 400, "Good try, keep making sustainable choices.", 10, 1, 255, 255, 255]
+      args.outputs.labels << [640, 400, 'Good try, keep making sustainable choices.', 10, 1, 255, 255, 255]
       # insert personalized message about the things they chose
     end
-    args.outputs.labels << [640, 550, "GAME OVER!", 10, 1, 255, 255, 255]
-    args.outputs.labels << [640, 500, "You've exceeded the maximum carbon footprint.", 10, 1, 255, 255, 255]
+    args.outputs.labels << [640, 550, 'GAME OVER!', 10, 1, 255, 255, 255]
+    args.outputs.labels << [640, 500, 'You\'ve exceeded the maximum carbon footprint.', 10, 1, 255, 255, 255]
     args.outputs.labels << [640, 450, "Your score was: #{@height}", 10, 1, 255, 255, 255]
-    # TODO: end screen
 
   # gameplay
   else
@@ -117,3 +116,4 @@ def tick args
     @end = true if @footprint > 100
   end
 end
+
