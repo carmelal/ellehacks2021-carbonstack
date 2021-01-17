@@ -43,8 +43,9 @@ WINDOW_WIDTH = 1280
 def tick args
   # start screen
   if @start
-    args.outputs.sprites << [0, 0, WINDOW_WIDTH, WINDOW_WIDTH, 'sprites/square/gray.png']
-    args.outputs.labels << [WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2 + 150, 'dis a game', 10, 1]
+    args.outputs.sprites << [0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, 'sprites/ellehacks/banner.jpg']
+    args.outputs.sprites << [WINDOW_WIDTH / 2 - 450, 50, 900, 500, 'sprites/square/gray.png', 0, 220]
+    args.outputs.labels << [WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2 + 150, 'Carbon Stack', 10, 1]
 
     # start button
     args.outputs.sprites << [WINDOW_WIDTH / 2 - 300, 150, 250, 150, 'sprites/isometric/green.png']
@@ -67,18 +68,18 @@ def tick args
 
   # end screen
   elsif @end
-    
+
     # calculating what's a good score: 15 and below bad, to 22 average, 22 above getting better
     if @height <= 15
-      args.outputs.sprites << [0, 0, WINDOW_WIDTH, WINDOW_WIDTH, 'sprites/square/red.png']
+      args.outputs.sprites << [0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, 'sprites/square/red.png']
       args.outputs.labels << [640, 400, 'Try to think of ways you can be sustainable in your life.', 10, 1, 255, 255, 255]
       # insert personalized message about the things they chose
     elsif @height <= 22
-      args.outputs.sprites << [0, 0, WINDOW_WIDTH, WINDOW_WIDTH, 'sprites/square/yellow.png']
+      args.outputs.sprites << [0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, 'sprites/square/yellow.png']
       args.outputs.labels << [640, 400, 'You can be more sustainable and make a change!', 10, 1, 255, 255, 255]
       # insert personalized message about the things they chose
     else
-      args.outputs.sprites << [0, 0, WINDOW_WIDTH, WINDOW_WIDTH, 'sprites/square/green.png']
+      args.outputs.sprites << [0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, 'sprites/square/green.png']
       args.outputs.labels << [640, 400, 'Good try, keep making sustainable choices.', 10, 1, 255, 255, 255]
       # insert personalized message about the things they chose
     end
@@ -88,19 +89,18 @@ def tick args
 
     args.outputs.labels << [640, 350, "Cows: #{@scorecount['cow']}", 10, 1, 255, 255, 255]
     #TODO something with scorecount of each item
-               
+
     # play again button
     args.outputs.sprites << [WINDOW_WIDTH / 2 - 150, 75, 300, 100, 'sprites/square/black.png']
-    args.outputs.labels << [640, 150, "Play Again?", 10, 1, 255, 255, 255]
+    args.outputs.labels << [640, 150, 'Play Again!', 10, 1, 255, 255, 255]
 
     if args.inputs.mouse.click
       if args.inputs.mouse.point.inside_rect? [WINDOW_WIDTH / 2 - 50, 75, WINDOW_WIDTH / 2 - 50 + 100, 75 + 100]
-        @start = true
         @end = false
         @height = 0
         @footprint = 0
         @boxes = []
-        @scorecount.each { |k, v| @scorecount[k] = 0 } 
+        @scorecount.each { |k, _v| @scorecount[k] = 0 }
       end
     end
 
@@ -108,10 +108,18 @@ def tick args
   else
     y = 250
     COLOURS[@pair].each_with_index do |colour, index|
-      args.outputs.sprites << [50, y + (index * 125), 100, 100, "sprites/square/#{colour}.png"]
+      args.outputs.sprites << [50, y + (index * 125), 100, 100, "sprites/ellehacks/#{colour}.png"]
     end
     args.outputs.labels << [1260, 690, "Tower height: #{@height}", 2, 2]
     args.outputs.labels << [1260, 640, "Carbon footprint: #{@footprint}", 2, 2]
+
+    if @boxes.length < 3
+      for i in 0..(2 - @boxes.length)
+        args.outputs.sprites << [WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2 - 200 * (1 - i + 1),
+                                 400, 200,
+                                 'sprites/square/gray.png']
+      end
+    end
 
     @boxes.each_with_index do |box, index|
       x = WINDOW_WIDTH / 2 + 100
@@ -120,7 +128,7 @@ def tick args
       if y < -199
         @boxes.delete_at(index)
       else
-        args.outputs.sprites << [x, y, 200, 200, "sprites/square/#{box}.png"]
+        args.outputs.sprites << [x, y, 200, 200, "sprites/ellehacks/#{box}.png"]
       end
     end
 
@@ -147,3 +155,4 @@ def tick args
     @end = true if @footprint > 100
   end
 end
+
