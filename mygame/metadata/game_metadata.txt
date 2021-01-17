@@ -1,6 +1,6 @@
-#devid=myname
-#devtitle=My Name
-#gameid=mygame
-#gametitle=My Game
+devid=shairagavi
+#devtitle=Beep Boop
+#gameid=https://shairagavi.itch.io/carbonstack
+#gametitle=CarbonStack
 #version=0.1
 #icon=metadata/icon.png
