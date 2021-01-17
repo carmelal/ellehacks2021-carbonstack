@@ -18,7 +18,16 @@ SCORES = {
   'tap water' => [0, 3]
 }.freeze
 
-SCORECOUNT = {
+WINDOW_HEIGHT = 720
+WINDOW_WIDTH = 1280
+
+@pair = rand(5)
+@boxes = []
+@height = 0
+@footprint = 0
+@start = true
+@end = false
+@scorecount = {
   'cow' => 0,
   'veggies' => 0,
   'car' => 0,
@@ -30,16 +39,6 @@ SCORECOUNT = {
   'bottled water' => 0,
   'tap water' => 0
 }
-
-WINDOW_HEIGHT = 720
-WINDOW_WIDTH = 1280
-
-@pair = rand(5)
-@boxes = []
-@height = 0
-@footprint = 0
-@start = true
-@end = false
 
 def tick args
   # start screen
@@ -87,7 +86,7 @@ def tick args
     args.outputs.labels << [640, 500, 'You\'ve exceeded the maximum carbon footprint.', 10, 1, 255, 255, 255]
     args.outputs.labels << [640, 450, "Your score was: #{@height}", 10, 1, 255, 255, 255]
 
-    args.outputs.labels << [640, 350, "Cows: #{SCORECOUNT['cow']}", 10, 1, 255, 255, 255]
+    args.outputs.labels << [640, 350, "Cows: #{@scorecount['cow']}", 10, 1, 255, 255, 255]
     #TODO something with scorecount of each item
                
     # play again button
@@ -101,7 +100,7 @@ def tick args
         @height = 0
         @footprint = 0
         @boxes = []
-        SCORECOUNT.each { |k, v| SCORECOUNT[k] = 0 } 
+        @scorecount.each { |k, v| @scorecount[k] = 0 } 
       end
     end
 
@@ -141,7 +140,7 @@ def tick args
         @height += 1
         @footprint += SCORES[item][0] + rand(SCORES[item][1] - SCORES[item][0])
         @pair = rand(5)
-        SCORECOUNT[item] += 1
+        @scorecount[item] += 1
       end
     end
 
