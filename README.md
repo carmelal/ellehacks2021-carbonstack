@@ -1,6 +1,6 @@
 # CarbonStack
 
-_Created for Ellehacks 2021. [HYPE link](https://ellehacks.hypeinnovation.com/servlet/hype/IMT?documentTableId=9007205813284879242&userAction=Browse&templateName=&documentId=5250193d5b7cc07f148122880659323c)_
+_Created using DragonRuby for Ellehacks 2021. Check out our project on [HYPE](https://ellehacks.hypeinnovation.com/servlet/hype/IMT?documentTableId=9007205813284879242&userAction=Browse&templateName=&documentId=5250193d5b7cc07f148122880659323c)_!
 
 ![Banner](/mygame/sprites/ellehacks/banner.jpg)
 
@@ -11,3 +11,5 @@ _Created for Ellehacks 2021. [HYPE link](https://ellehacks.hypeinnovation.com/se
 💥 Keep making choices to make your tower taller but beware: if your carbon footprint gets too big, your tower will fall!
 
 🌱 Be sure to read the summary to see how you can make more sustainable choices.
+
+##### Created by @carmelal, @shairagavi, @zhouselena, and Teann Leeshanok (she doesn't have GitHub, but she did all our drawings!)
