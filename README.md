@@ -1,6 +1,6 @@
 # CarbonStack
 
-_Created using DragonRuby for Ellehacks 2021._
+_Created using [DragonRuby](https://dragonruby.itch.io/dragonruby-gtk) for Ellehacks 2021._
 
 ![Banner](/mygame/sprites/ellehacks/banner.jpg)
 
@@ -16,4 +16,4 @@ _Created using DragonRuby for Ellehacks 2021._
 [<img align='left' alt='Pitch video badge' src='https://img.shields.io/badge/Pitch-red?style=for-the-badge&logo=youtube&link=https://youtu.be/ajosjO4K1X8'/>](https://youtu.be/ajosjO4K1X8)
 [<img align='left' alt='Hype idea badge' src='https://img.shields.io/badge/HYPE%20page-blue?style=for-the-badge&link=https://ellehacks.hypeinnovation.com/servlet/hype/IMT?documentTableId=9007205813284879242&userAction=Browse&templateName=&documentId=5250193d5b7cc07f148122880659323c'/>](https://ellehacks.hypeinnovation.com/servlet/hype/IMT?documentTableId=9007205813284879242&userAction=Browse&templateName=&documentId=5250193d5b7cc07f148122880659323c)
 ****
-##### Created by @carmelal, @shairagavi, @zhouselena, and Teann Leeshanok (she doesn't have GitHub, but she did all our drawings!)
+##### Created by @carmelal, @shairagavi, @zhouselena, and Teann Leeshanok (she doesn't have GitHub, but she did all our graphics!)
