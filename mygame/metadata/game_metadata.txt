@@ -1,6 +1,6 @@
 devid=shairagavi
-#devtitle=Beep Boop
-#gameid=https://shairagavi.itch.io/carbonstack
-#gametitle=CarbonStack
-#version=0.1
-#icon=metadata/icon.png
+devtitle=Beep Boop
+gameid=https://shairagavi.itch.io/carbonstack
+gametitle=CarbonStack
+version=0.1
+icon=metadata/icon.png
